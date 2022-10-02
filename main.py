@@ -22,6 +22,12 @@ screen.bgcolor("black")
 screen.title("Snakes!")
 screen.tracer(0)
 snake = Snake()
+screen.listen()
+
+screen.onkey(snake.left, "a")
+screen.onkey(snake.down, "s")
+screen.onkey(snake.right, "d")
+screen.onkey(snake.up, "w")
 
 
 # methods
