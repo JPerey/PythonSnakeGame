@@ -17,6 +17,7 @@ from snake import Snake
 import time
 
 screen = Screen()
+game_speed = .2
 screen.setup(width=600, height=600)
 screen.bgcolor("black")
 screen.title("Snakes!")
@@ -33,14 +34,14 @@ screen.onkey(snake.up, "w")
 # methods
 
 
-def game_run():
+def game_run(game_speed):
     game_over = False
 
     while not game_over:
         screen.update()
-        time.sleep(.2)
+        time.sleep(game_speed)
         snake.move()
 
 
-game_run()
+game_run(game_speed)
 screen.exitonclick()

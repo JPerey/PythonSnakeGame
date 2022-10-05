@@ -20,7 +20,7 @@ class Snake:
             new_segment = Turtle("square")
             new_segment.color("white")
             new_segment.degrees(360)
-            new_segment.speed(10)
+            new_segment.speed(5)
             new_segment.penup()
             new_segment.goto(i)
             self.snake_segments.append(new_segment)
@@ -55,3 +55,4 @@ class Snake:
             pass
         else:
             self.head.seth(270)
+
