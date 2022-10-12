@@ -66,3 +66,9 @@ class Snake:
         else:
             self.head.seth(270)
 
+    def reset(self):
+        for i in range(len(self.snake_segments)):
+            self.snake_segments[i].goto(400, 400)
+        self.snake_segments.clear()
+        self.create_snake()
+        self.head = self.snake_segments[0]

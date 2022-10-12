@@ -40,35 +40,30 @@ screen.onkey(snake.up, "w")
 
 def game_run(game_speed):
     game_over = False
-    new_score = 0
 
     while not game_over:
         screen.update()
         time.sleep(game_speed)
         snake.move()
 
-        #detect collision with food
+        # detect collision with food
 
         if snake.head.distance(food) < 15:
             food.move_food()
-            new_score += 1
             snake.increase_size()
-            scoreboard.print_score(new_score)
+            scoreboard.increase_score()
 
-        #detect collision with wall
+        # detect collision with wall
         if snake.head.xcor() > 290 or snake.head.xcor() < -290 or snake.head.ycor() > 290 or snake.head.ycor() < -290:
-            game_over = True
-            scoreboard.game_over(new_score)
+            scoreboard.reset()
+            snake.reset()
 
-        #detect collision with tail
+        # detect collision with tail
 
         for segment in snake.snake_segments[1:]:
             if snake.head.distance(segment) < 10:
-                # PRINT
-                print(snake.head.distance(segment))
-                game_over = True
-                scoreboard.game_over(new_score)
-
+                scoreboard.reset()
+                snake.reset()
 
 
 game_run(game_speed)
